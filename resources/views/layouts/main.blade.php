@@ -12,19 +12,19 @@
 <body>
     <ul class="nav">
         <li class="nav-item">
-            <a class="nav-link" href="{{ route("wow_users.index") }}">Start page</a>
+            <a class="nav-link" href="{{ route("users.index") }}">Start page</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ route("wow_users.create") }}">Add wow player</a>
+            <a class="nav-link" href="{{ route("users.create") }}">Add user</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{-- route("wow_users.edit") --}}">Edit wow player</a>
+            <a class="nav-link" href="{{-- route("users.edit") --}}">Edit user</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{-- route("wow_users.update") --}}">update</a>
+            <a class="nav-link" href="{{-- route("users.update") --}}">update</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{-- route("wow_users.destroy") --}}">Remove wow player</a>
+            <a class="nav-link" href="{{-- route("users.destroy") --}}">Remove user</a>
         </li>
         <li class="nav-item">
             <a class="nav-link active disabled" href="#">Coming soon</a>

@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\WowUserController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,10 +19,10 @@ Route::get('/', function () {
 });
 
 
-Route::get('/wow_users', [WowUserController::class, 'index'])->name('wow_users.index');
-Route::get('/wow_users/create', [WowUserController::class, 'create'])->name('wow_users.create');
-Route::post('/wow_users', [WowUserController::class, 'store'])->name('wow_users.store');
-Route::get('/wow_users/{wow_user}', [WowUserController::class, 'show'])->name('wow_users.show');
-Route::get('/wow_users/&&&/edit', [WowUserController::class, 'edit'])->name('wow_users.edit');
-Route::put('/wow_users/&&&', [WowUserController::class, 'update'])->name('wow_users.update');
-Route::delete('/wow_users/&&&', [WowUserController::class, 'destroy'])->name('wow_users.destroy');
+Route::get('/users', [UserController::class, 'index'])->name('users.index');
+Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+Route::post('/users', [UserController::class, 'store'])->name('users.store');
+Route::get('/users/{wow_user}', [UserController::class, 'show'])->name('users.show');
+Route::get('/users/&&&/edit', [UserController::class, 'edit'])->name('users.edit');
+Route::put('/users/&&&', [UserController::class, 'update'])->name('users.update');
+Route::delete('/users/&&&', [UserController::class, 'destroy'])->name('users.destroy');
