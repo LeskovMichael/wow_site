@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+// comment
 Route::get('/wow_users', [WowUserController::class, 'index'])->name('wow_users.index');
 Route::get('/wow_users/create', [WowUserController::class, 'create'])->name('wow_users.create');
 Route::post('/wow_users', [WowUserController::class, 'store'])->name('wow_users.store');
