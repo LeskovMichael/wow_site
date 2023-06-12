@@ -6,10 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class CreateController extends Controller
+class CreateController extends BaseUserController
 {
     public function __invoke() {
-        $users = User::all();
-        return view('users.create', compact('users'));
+        //$this->authorize('create', [User::class]);
+        return view('users.create');
     }
 }

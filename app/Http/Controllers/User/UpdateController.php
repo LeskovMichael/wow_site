@@ -3,21 +3,15 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\User\UpdateRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class UpdateController extends Controller
+class UpdateController extends BaseUserController
 {
-    public function __invoke(User $user) {
-        $data = request()->validate([
-            'first_name' => 'string',
-            'middle_name' => 'string',
-            'last_name' => 'string',
-            'email' => 'string',
-            'phone' => 'string',
-            'password' => 'string',
-        ]);
-        $user->update($data);
+    public function __invoke(User $user, UpdateRequest $request) {
+        $data = $request->validated();
+        $this->service->update($data);
         return redirect()->route('users.show', $user->id);
     }
 }

@@ -3,21 +3,15 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\User\StoreRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class StoreController extends Controller
+class StoreController extends BaseUserController
 {
-    public function __invoke() {
-        $data = request()->validate([
-            'first_name' => 'string',
-            'middle_name' => 'string',
-            'last_name' => 'string',
-            'email' => 'string',
-            'phone' => 'string',
-            'password' => 'string',
-        ]);
-        User::create($data);
+    public function __invoke(StoreRequest $request) {
+        $data = $request->validated();
+        $this->service->store($data);
         return redirect()->route('users.index');
     }
 }

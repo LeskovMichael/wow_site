@@ -1,9 +1,19 @@
-@extends('layouts.main')
+@extends('layouts.app')
+
 @section('content')
-    <div class="alert alert-success" role="alert">
-        <h4 class="alert-heading">Добро пожаловать!</h4>
-        <p> </p>
-        <hr>
-        <p class="mb-0">Используй навигацию сверху для перемещения по сайту!</p>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        Добро пожаловать!
+                    </div>
+
+                    <div class="card-body">
+                        Используйте панель навигации сверху для перемещения по сайту!
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection

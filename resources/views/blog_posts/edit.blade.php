@@ -1,32 +1,30 @@
-@extends('layouts.main')
+@extends('layouts.app')
+
 @section('content')
-    <form action="{{ route('users.update', $user->id) }}" method="post">
+    <form action="{{ route('blog_posts.update', $blogPost->id) }}" method="post">
         @csrf
         @method('patch')
         <div class="form-group">
-            <label for="first_name">First name</label>
-            <input type="first_name" name="first_name" class="form-control" id="first_name" placeholder="first_name">
+            <label for="title">Заголовок</label>
+            <input type="title" name="title" class="form-control" id="title" value="{{ $blogPost->title }}">
         </div>
         <div class="form-group">
-            <label for="middle_name">Middle name</label>
-            <input type="middle_name" name="middle_name" class="form-control" id="middle_name" placeholder="middle_name">
+            <label for="content">Контент</label>
+            <input type="content" name="content" class="form-control" id="content" value="{{ $blogPost->content }}">
         </div>
         <div class="form-group">
-            <label for="last_name">Last name</label>
-            <input type="last_name" name="last_name" class="form-control" id="last_name" placeholder="last_name">
+            <label for="category">Категория</label>
+            <input type="category" name="category" class="form-control" id="category" value="{{ $blogPost->blog_category->name }}">
         </div>
         <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" name="email" class="form-control" id="email" placeholder="email">
+            <label for="category">Теги</label>
+            <div class="input-group">
+                @foreach($blogPost->blog_tags as $blogTag)
+                    <input type="text" value="{{ $blogTag->name }}" class="form-control" name="tag_names[]">
+                @endforeach
+            </div>
         </div>
-        <div class="form-group">
-            <label for="phone">Phone number</label>
-            <input type="phone" name="phone" class="form-control" id="phone" placeholder="phone">
-        </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" name="password" class="form-control" id="password" placeholder="password">
-        </div>
-        <button type="submit" class="btn btn-primary">Update</button>
+        <br>
+        <button type="submit" class="btn btn-primary">Сохранить</button>
     </form>
 @endsection

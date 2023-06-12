@@ -1,26 +1,21 @@
-@extends('layouts.main')
+@extends('layouts.app')
+
 @section('content')
     <div class="row">
-        <div class="col-md-5">
-
+        <div class="col-md-1">
+            <a href="{{ route('blog_posts.create') }}" class="btn btn-warning w-100">Создать</a>
         </div>
         <div class="col-md-1">
-            <button type="button" class="btn btn-warning">
-                <a href="{{ route('blog_posts.create') }}">Создать</a>
-            </button>
+            <a href="{{ url()->previous() }}" class="btn btn-outline-dark w-100">Назад</a>
         </div>
-        <div class="col-md-1">
-            <button type="button" class="btn btn-link">
-                <a href="/">Назад</a>
-            </button>
-        </div>
-        <div class="col-md-5">
 
-        </div>
+        <div class="col-md-5"></div>
+
+        <div class="col-md-5">{{ $blogPosts->withQueryString()->links() }}</div>
     </div>
     <br>
     @foreach($blogPosts as $blogPost)
-        @include('layouts.post_structure', array(
+        @include('includes.blog_post_structure', array(
             'blogPost' => $blogPost,
         ))
     @endforeach

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Traits\Filtreable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -10,10 +11,13 @@ class BlogPost extends Model
 {
     use HasFactory;
     use SoftDeletes;
+    use Filtreable;
 
     protected $fillable = [
         'title',
         'content',
+        'user_id',
+        'blog_category_id'
     ];
 
     public function user()
@@ -28,6 +32,6 @@ class BlogPost extends Model
     public function blog_tags()
     {
         return $this->belongsToMany(BlogTag::class,
-            'blog_post_tags', 'blog_post_id', 'blog_tag_id');
+            'blog_post_tag', 'blog_post_id', 'blog_tag_id');
     }
 }

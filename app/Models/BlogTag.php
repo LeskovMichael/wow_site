@@ -11,6 +11,10 @@ class BlogTag extends Model
     use HasFactory;
     use SoftDeletes;
 
+    protected $fillable = [
+        'name',
+    ];
+
     public function blog_posts()
     {
         return $this->belongsToMany(BlogPost::class,

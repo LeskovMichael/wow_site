@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('blog_category_id');
             $table->unsignedBigInteger('user_id');
-            $table->string('title')->unique();
-            $table->text('content')->nullable();
+            $table->string('title');
+            $table->text('content');
             $table->unsignedBigInteger('likes')->default(0);
             $table->timestamps();
 
