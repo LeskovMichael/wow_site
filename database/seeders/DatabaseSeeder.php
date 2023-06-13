@@ -3,6 +3,12 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\BlogCategory;
+use App\Models\BlogPost;
+use App\Models\BlogTag;
+use App\Models\User;
+use Database\Factories\BlogCategoryFactory;
+use Database\Factories\BlogPostFactory;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,11 +18,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        User::factory(1)->create();
+        BlogCategory::factory(20)->create();
+        $tags = BlogTag::factory(20)->create();
+        $posts = BlogPost::factory(200)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+
+        foreach ($posts as $post) {
+            $tagsForPostIds = $tags->random(5)->pluck('id');
+            $post->blog_tags()->sync($tagsForPostIds);
+        }
     }
 }
